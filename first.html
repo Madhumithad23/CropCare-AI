@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CropCare AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <div class="logo">
+            🌱 CropCare AI
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#scanner">Crop Scanner</a>
+
+            <a href="#weather">Weather</a>
+
+            <a href="#alerts">Alerts</a>
+
+        </div>
+
+        <select id="language">
+
+            <option>English</option>
+
+            <option>हिन्दी</option>
+
+            <option>मराठी</option>
+
+            <option>తెలుగు</option>
+
+        </select>
+
+    </nav>
+
+
+    <!-- HOME SECTION -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                SMART CROP HEALTH SYSTEM
+            </p>
+
+            <h1>
+                Detect Crop Diseases
+                <span>Before They Spread</span>
+            </h1>
+
+            <p class="description">
+
+                AI-powered crop health monitoring for
+                early disease detection, weather risk
+                forecasting and smart farm management.
+
+            </p>
+
+            <button onclick="openScanner()">
+
+                📷 Scan Your Crop
+
+            </button>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            🌾
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <p class="section-small">
+            SMART FARMING
+        </p>
+
+        <h2>
+            Everything You Need for
+            <span>Healthy Crops</span>
+        </h2>
+
+
+        <div class="feature-container">
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📷
+                </div>
+
+                <h3>
+                    AI Crop Scanner
+                </h3>
+
+                <p>
+                    Capture a crop image and identify
+                    possible diseases and pests using AI.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    🌦️
+                </div>
+
+                <h3>
+                    Weather Risk
+                </h3>
+
+                <p>
+                    Analyze weather conditions to identify
+                    possible crop disease risks.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <h3>
+                    Location Intelligence
+                </h3>
+
+                <p>
+                    Get recommendations based on your
+                    crop location and historical data.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Multilingual
+                </h3>
+
+                <p>
+                    Access important crop information
+                    in your preferred language.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CROP SCANNER -->
+
+    <section id="scanner" class="scanner">
+
+        <p class="section-small">
+            AI CROP ANALYSIS
+        </p>
+
+        <h2>
+            Scan Your Crop
+        </h2>
+
+        <p>
+            Upload a crop image or capture one using
+            your camera.
+        </p>
+
+
+        <div class="scanner-box">
+
+    <div class="camera-icon">
+        📷
+    </div>
+
+    <h3>
+        Upload or Capture Crop Image
+    </h3>
+
+    <p>
+        Take a clear photo of the affected leaf or plant.
+    </p>
+
+
+    <!-- Image Upload -->
+
+    <input
+        type="file"
+        id="cropImage"
+        accept="image/*"
+        capture="environment"
+        onchange="previewImage(event)"
+    >
+
+
+    <!-- Image Preview -->
+
+    <div class="image-preview">
+
+        <img
+            id="preview"
+            src=""
+            alt="Crop Image Preview"
+        >
+
+    </div>
+
+
+    <!-- Crop Information -->
+
+    <div class="crop-details">
+
+        <label>
+            Select Crop
+        </label>
+
+        <select id="crop">
+
+            <option value="">
+                Select Crop
+            </option>
+
+            <option value="tomato">
+                Tomato
+            </option>
+
+            <option value="cotton">
+                Cotton
+            </option>
+
+            <option value="rice">
+                Rice
+            </option>
+
+            <option value="wheat">
+                Wheat
+            </option>
+
+            <option value="chilli">
+                Chilli
+            </option>
+
+            <option value="maize">
+                Maize
+            </option>
+
+        </select>
+
+
+        <label>
+            Location
+        </label>
+
+        <input
+            type="text"
+            id="cropLocation"
+            placeholder="Example: Nashik, Maharashtra"
+        >
+
+
+        <label>
+            Crop Stage
+        </label>
+
+        <select id="cropStage">
+
+            <option value="">
+                Select Crop Stage
+            </option>
+
+            <option value="seedling">
+                Seedling
+            </option>
+
+            <option value="vegetative">
+                Vegetative
+            </option>
+
+            <option value="flowering">
+                Flowering
+            </option>
+
+            <option value="fruiting">
+                Fruiting
+            </option>
+
+            <option value="harvesting">
+                Harvesting
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <button onclick="analyzeCrop()">
+
+        🔍 Analyze Crop
+
+    </button>
+
+
+    <div id="result"></div>
+
+</div>
+    </section>
+
+
+    <!-- WEATHER -->
+
+    <section id="weather" class="weather">
+
+        <p class="section-small">
+            WEATHER INTELLIGENCE
+        </p>
+
+        <h2>
+            Check Crop Risk
+        </h2>
+
+        <p>
+            Enter your location to analyze weather
+            conditions.
+        </p>
+
+
+        <div class="weather-box">
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Enter your city or district"
+            >
+
+
+            <button onclick="getWeather()">
+
+                🌦️ Check Weather
+
+            </button>
+
+
+            <div id="weatherResult"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ALERTS -->
+
+    <section id="alerts" class="alerts">
+
+        <p class="section-small">
+            EARLY WARNING
+        </p>
+
+        <h2>
+            Crop Health Alerts
+        </h2>
+
+
+        <div class="alert-box">
+
+            <div class="alert-icon">
+                ⚠️
+            </div>
+
+            <div>
+
+                <h3>
+                    Disease Risk Monitoring
+                </h3>
+
+                <p>
+                    Your personalized crop alerts will
+                    appear here after connecting the
+                    weather and AI models.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            🌱 CropCare AI
+        </h3>
+
+        <p>
+            Smart Crop Health System
+        </p>
+
+        <p>
+            Smart India Hackathon 2026
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

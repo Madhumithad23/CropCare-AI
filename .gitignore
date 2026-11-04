@@ -1,0 +1,14 @@
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Dataset files
+Backend/Data/
+
+# Model files (upload separately if needed)
+Backend/Models/*.keras
+
+# Private environment files
+.env
